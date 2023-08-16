@@ -1,13 +1,21 @@
+<!DOCTYPE html>
 <html>
-  <body>
-    <form id="hola">
+<head>
+  <title>Saludador</title>
+</head>
+<body>
+  <form id="hola">
     <h1>Hola</h1>
     <label for="nombre">Ingresa tu Nombre:</label>
-    <input type="text" id="name"/>
-    <input type="submit" value="boton" id="button" />
+    <input type="text" id="name" />
+    <label for="genero">Selecciona tu Género:</label>
+    <select id="gender">
+      <option value="sr">Masculino</option>
+      <option value="sra">Femenino</option>
+    </select>
+    <input type="submit" value="Saludar" id="button" />
   </form>
   <p>Hola: </p><div id="resultado-div"></div>
   <script type="module" src="./src/index.js"></script>
-
-  </body>
+</body>
 </html>

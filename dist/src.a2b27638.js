@@ -126,6 +126,19 @@ form.addEventListener("submit", function (event) {
   var nombre2 = nombre.value;
   div.innerHTML = "<p>" + nombre2 + "</p>";
 });
+document.getElementById("hola").addEventListener("submit", function (event) {
+  event.preventDefault();
+  var name = document.getElementById("name").value;
+  var gender = document.getElementById("gender").value;
+  var salutation = "Hola";
+  if (gender === "sr") {
+    salutation += " Sr.";
+  } else if (gender === "sra") {
+    salutation += " Sra.";
+  }
+  salutation += " ".concat(name, "!");
+  document.getElementById("resultado-div").textContent = salutation;
+});
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -151,7 +164,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63864" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64062" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
