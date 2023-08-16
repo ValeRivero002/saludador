@@ -129,14 +129,18 @@ form.addEventListener("submit", function (event) {
 document.getElementById("hola").addEventListener("submit", function (event) {
   event.preventDefault();
   var name = document.getElementById("name").value;
+  var age = parseInt(document.getElementById("age").value);
   var gender = document.getElementById("gender").value;
-  var salutation = "Hola";
-  if (gender === "sr") {
-    salutation += " Sr.";
-  } else if (gender === "sra") {
-    salutation += " Sra.";
+  var salutation = "";
+  if (age > 30) {
+    if (gender === "sr") {
+      salutation = "Hola Sr. " + name + "!";
+    } else if (gender === "sra") {
+      salutation = "Hola Sra. " + name + "!";
+    }
+  } else {
+    salutation = "Hola " + name + "!";
   }
-  salutation += " ".concat(name, "!");
   document.getElementById("resultado-div").textContent = salutation;
 });
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -164,7 +168,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64062" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64203" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
