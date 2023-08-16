@@ -15,18 +15,28 @@ form.addEventListener("submit", (event) => {
     const name = document.getElementById("name").value;
     const age = parseInt(document.getElementById("age").value);
     const gender = document.getElementById("gender").value;
-  
+    const language = document.getElementById("language").value;
     const currentTime = new Date();
     const hour = currentTime.getHours();
-  
+    
     let salutation = "";
   
-    if (hour >= 0 && hour < 12) {
-      salutation = "Buenos días";
-    } else if (hour >= 12 && hour < 18) {
-      salutation = "Buenas tardes";
-    } else {
-      salutation = "Buenas noches";
+    if (language === "es") {
+      if (hour >= 0 && hour < 12) {
+        salutation = "Buenos días";
+      } else if (hour >= 12 && hour < 18) {
+        salutation = "Buenas tardes";
+      } else {
+        salutation = "Buenas noches";
+      }
+    } else if (language === "en") {
+      if (hour >= 0 && hour < 12) {
+        salutation = "Good morning";
+      } else if (hour >= 12 && hour < 18) {
+        salutation = "Good afternoon";
+      } else {
+        salutation = "Good evening";
+      }
     }
   
     if (age > 30) {
@@ -41,5 +51,4 @@ form.addEventListener("submit", (event) => {
   
     document.getElementById("resultado-div").textContent = salutation;
   });
-  
   

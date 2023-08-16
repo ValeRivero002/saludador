@@ -131,15 +131,26 @@ document.getElementById("hola").addEventListener("submit", function (event) {
   var name = document.getElementById("name").value;
   var age = parseInt(document.getElementById("age").value);
   var gender = document.getElementById("gender").value;
+  var language = document.getElementById("language").value;
   var currentTime = new Date();
   var hour = currentTime.getHours();
   var salutation = "";
-  if (hour >= 0 && hour < 12) {
-    salutation = "Buenos días";
-  } else if (hour >= 12 && hour < 18) {
-    salutation = "Buenas tardes";
-  } else {
-    salutation = "Buenas noches";
+  if (language === "es") {
+    if (hour >= 0 && hour < 12) {
+      salutation = "Buenos días";
+    } else if (hour >= 12 && hour < 18) {
+      salutation = "Buenas tardes";
+    } else {
+      salutation = "Buenas noches";
+    }
+  } else if (language === "en") {
+    if (hour >= 0 && hour < 12) {
+      salutation = "Good morning";
+    } else if (hour >= 12 && hour < 18) {
+      salutation = "Good afternoon";
+    } else {
+      salutation = "Good evening";
+    }
   }
   if (age > 30) {
     if (gender === "sr") {
@@ -177,7 +188,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64269" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64377" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
