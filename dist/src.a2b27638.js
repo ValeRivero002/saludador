@@ -131,15 +131,24 @@ document.getElementById("hola").addEventListener("submit", function (event) {
   var name = document.getElementById("name").value;
   var age = parseInt(document.getElementById("age").value);
   var gender = document.getElementById("gender").value;
+  var currentTime = new Date();
+  var hour = currentTime.getHours();
   var salutation = "";
+  if (hour >= 0 && hour < 12) {
+    salutation = "Buenos días";
+  } else if (hour >= 12 && hour < 18) {
+    salutation = "Buenas tardes";
+  } else {
+    salutation = "Buenas noches";
+  }
   if (age > 30) {
     if (gender === "sr") {
-      salutation = "Hola Sr. " + name + "!";
+      salutation += " Sr. " + name + "!";
     } else if (gender === "sra") {
-      salutation = "Hola Sra. " + name + "!";
+      salutation += " Sra. " + name + "!";
     }
   } else {
-    salutation = "Hola " + name + "!";
+    salutation += " " + name + "!";
   }
   document.getElementById("resultado-div").textContent = salutation;
 });
@@ -168,7 +177,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64203" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64269" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

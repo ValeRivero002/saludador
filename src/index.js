@@ -15,19 +15,31 @@ form.addEventListener("submit", (event) => {
     const name = document.getElementById("name").value;
     const age = parseInt(document.getElementById("age").value);
     const gender = document.getElementById("gender").value;
-    
+  
+    const currentTime = new Date();
+    const hour = currentTime.getHours();
+  
     let salutation = "";
+  
+    if (hour >= 0 && hour < 12) {
+      salutation = "Buenos días";
+    } else if (hour >= 12 && hour < 18) {
+      salutation = "Buenas tardes";
+    } else {
+      salutation = "Buenas noches";
+    }
   
     if (age > 30) {
       if (gender === "sr") {
-        salutation = "Hola Sr. " + name + "!";
+        salutation += " Sr. " + name + "!";
       } else if (gender === "sra") {
-        salutation = "Hola Sra. " + name + "!";
+        salutation += " Sra. " + name + "!";
       }
     } else {
-      salutation = "Hola " + name + "!";
+      salutation += " " + name + "!";
     }
   
     document.getElementById("resultado-div").textContent = salutation;
   });
+  
   
